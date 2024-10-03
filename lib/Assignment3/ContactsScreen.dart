@@ -68,107 +68,102 @@ class _ContactsScreenState extends State<ContactsScreen> {
     ),
       body: Container(
         color: Colors.grey,
-        child: Expanded(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-              Container(
-
-                margin: const EdgeInsets.all(10),
-                child: TextField(
-                  controller: username,
-                  decoration: InputDecoration(
-                    suffixIcon: const Icon(Icons.edit,color: Colors.blue,),
-                    hintStyle: const TextStyle(color: Colors.black),
-                    hintText: "Enter Your Name Here",
-                    contentPadding: const EdgeInsets.all(15),
-                    filled: true,
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(100),
-                    ),
-                  ),
-
+        child: Column(
+          children: [
+          Container(
+            margin: const EdgeInsets.all(10),
+            child: TextField(
+              controller: username,
+              decoration: InputDecoration(
+                suffixIcon: const Icon(Icons.edit,color: Colors.blue,),
+                hintStyle: const TextStyle(color: Colors.black),
+                hintText: "Enter Your Name Here",
+                contentPadding: const EdgeInsets.all(15),
+                filled: true,
+                fillColor: Colors.white,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(100),
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.all(10),
-                child: TextField(
-                  controller: phoneNumber,
-                  decoration: InputDecoration(
-                    suffixIcon: const Icon(Icons.phone,color: Colors.blue,),
-                    hintStyle: const TextStyle(color: Colors.black),
-                    hintText: "Enter Your Phone Number Here",
-                    contentPadding: const EdgeInsets.all(15),
-                    filled: true,
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(100),
-                    ),
 
-
-                  ),
-
-                ),
-              ),
-              Container(
-                   margin:const EdgeInsets.all(10),
-                   child: Row(
-                    children: [
-                      Expanded(
-                        child: ElevatedButton(
-                            onPressed: (){
-                              addContact();
-                            },
-                          style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
-                            child: const Text("Add",style: TextStyle(color: Colors.black),),
-                        ),
-                      ),
-                      Expanded(
-                        child: ElevatedButton(
-                          onPressed: (){
-                            removeContact();
-                          },
-                          style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-                          child: const Text("Delete",style: TextStyle(color: Colors.black),),
-
-                        ),
-                      ),
-
-                    ],
-                               ),
-                 ),
-                Column(
-                  children: [
-                    for(int i = 0 ; i<contacts.length;i++)
-                          Container(
-                      margin: const EdgeInsets.all(10),
-                      child: Visibility(
-                        visible: visibilityStatus[i],
-                        child:
-                      Container(
-                          padding: const EdgeInsets.all(30),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius:BorderRadius.circular(100),
-                          ),
-                          child:Column(
-                            children: [
-                              Text("Name : ${contacts[i]['Name']}",style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                              Text("Phone : ${contacts[i]['Phone']}",style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                            ],
-                          )
-                      ),
-                      ),
-                    ),
-                  ],
-                ),
-                // Visibility(
-                //     child:
-                // ),
-              ],
             ),
           ),
+          Container(
+            margin: const EdgeInsets.all(10),
+            child: TextField(
+              controller: phoneNumber,
+              decoration: InputDecoration(
+                suffixIcon: const Icon(Icons.phone,color: Colors.blue,),
+                hintStyle: const TextStyle(color: Colors.black),
+                hintText: "Enter Your Phone Number Here",
+                contentPadding: const EdgeInsets.all(15),
+                filled: true,
+                fillColor: Colors.white,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(100),
+                ),
+
+
+              ),
+
+            ),
+          ),
+          Container(
+               margin:const EdgeInsets.all(10),
+               child: Row(
+                children: [
+                  Expanded(
+                    child: ElevatedButton(
+                        onPressed: (){
+                          addContact();
+                        },
+                      style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
+                        child: const Text("Add",style: TextStyle(color: Colors.black),),
+                    ),
+                  ),
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: (){
+                        removeContact();
+                      },
+                      style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                      child: const Text("Delete",style: TextStyle(color: Colors.black),),
+
+                    ),
+                  ),
+
+                ],
+                           ),
+             ),
+            Column(
+              children: [
+                for(int i = 0 ; i<contacts.length;i++)
+                      Container(
+                  margin: const EdgeInsets.all(10),
+                  child: Visibility(
+                    visible: visibilityStatus[i],
+                    child:
+                  Container(
+                      padding: const EdgeInsets.all(30),
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius:BorderRadius.circular(100),
+                      ),
+                      child:Column(
+                        children: [
+                          Text("Name : ${contacts[i]['Name']}",style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                          Text("Phone : ${contacts[i]['Phone']}",style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                        ],
+                      )
+                  ),
+                  ),
+                ),
+              ],
+            ),
+            // Visibility(
+            //     child:
+            // ),
+          ],
         ),
       ),
     );
